@@ -227,7 +227,7 @@
             height: 200px;
             object-fit: cover;
             display: block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f0f0f0;
         }
 
         .product-info {
@@ -384,16 +384,12 @@
             align-items: center;
         }
 
-        .cart-item-img {
+        .cart-item img {
             width: 70px;
             height: 70px;
+            object-fit: cover;
             border-radius: 10px;
             flex-shrink: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
         }
 
         .cart-item-info {
@@ -762,18 +758,20 @@
     </footer>
 
     <script>
-        // Dış bağlantı YOK - Tüm görseller emoji/gradient ile yerel
+        const carImage = "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&auto=format&fit=crop&q=80";
+        const bagImage = "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop&q=80";
+
         const products = [
-            { id: "A1", name: "Dodge Challenger SRT", description: "Mat gara, aggressiýaýy dizayn, V8 motor. Amerikan kuwwatly awtomobil ikony.", price: 70, currency: "TMT", emoji: "🚗" },
-            { id: "A2", name: "Sary Krokodil Desenli Sumka", description: "El ýasalma, premium deri, stil dizayn. Günlük ulanyş üçin ideýal.", price: 90, currency: "TMT", emoji: "👜" },
-            { id: "B1", name: "Akyllly Sagat Pro", description: "GPS, ýürek urşuny ölçeýji, suw geçirmeýän. Sport we saglyk gözegçiligi üçin.", price: 120, currency: "TMT", emoji: "⌚" },
-            { id: "B2", name: "Simsiz Gulaklyk", description: "Aktiw gurultuly öňüni alýar, 30 sagat batareýa ömrü. Premium ses hili.", price: 85, currency: "TMT", emoji: "🎧" },
-            { id: "C1", name: "Wintage Deri Gapjyk", description: "El ýasalma, RFID goragly, 12 kartlyk. Wagtyňyz stili.", price: 45, currency: "TMT", emoji: "👛" },
-            { id: "C2", name: "Sport Aýakgap", description: "Ýeňil, dem alyjy, ýokary rahatlyk. Ylgamak we günlük ulanyş.", price: 110, currency: "TMT", emoji: "👟" },
-            { id: "D1", name: "Surat Makinasy", description: "4K wideo, 24MP, WiFi baglanyşyk. Professional çekimler üçin.", price: 250, currency: "TMT", emoji: "📷" },
-            { id: "D2", name: "Gün Gözlügi", description: "UV400 gorag, polarizirlenen, titanyum karkas. Stil we gorag bilelikde.", price: 65, currency: "TMT", emoji: "🕶️" },
-            { id: "E1", name: "Parfüm Essence", description: "Tebigy düzümler, uzak wagtyňyz galýan. Täze we özüne çekiji ys.", price: 95, currency: "TMT", emoji: "🧴" },
-            { id: "E2", name: "Laptop Stendi", description: "Alýumin, ergonomik, sazlanýan. Sagdyn işleýiş pozisiýasy.", price: 55, currency: "TMT", emoji: "💻" }
+            { id: "A1", name: "Dodge Challenger SRT", description: "Mat gara, aggressiýaýy dizayn, V8 motor. Amerikan kuwwatly awtomobil ikony.", price: 70, currency: "TMT", image: carImage },
+            { id: "A2", name: "Sary Krokodil Desenli Sumka", description: "El ýasalma, premium deri, stil dizayn. Günlük ulanyş üçin ideýal.", price: 90, currency: "TMT", image: bagImage },
+            { id: "B1", name: "Akyllly Sagat Pro", description: "GPS, ýürek urşuny ölçeýji, suw geçirmeýän. Sport we saglyk gözegçiligi üçin.", price: 120, currency: "TMT", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
+            { id: "B2", name: "Simsiz Gulaklyk", description: "Aktiw gurultuly öňüni alýar, 30 sagat batareýa ömrü. Premium ses hili.", price: 85, currency: "TMT", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
+            { id: "C1", name: "Wintage Deri Gapjyk", description: "El ýasalma, RFID goragly, 12 kartlyk. Wagtyňyz stili.", price: 45, currency: "TMT", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400" },
+            { id: "C2", name: "Sport Aýakgap", description: "Ýeňil, dem alyjy, ýokary rahatlyk. Ylgamak we günlük ulanyş.", price: 110, currency: "TMT", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" },
+            { id: "D1", name: "Surat Makinasy", description: "4K wideo, 24MP, WiFi baglanyşyk. Professional çekimler üçin.", price: 250, currency: "TMT", image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400" },
+            { id: "D2", name: "Gün Gözlügi", description: "UV400 gorag, polarizirlenen, titanyum karkas. Stil we gorag bilelikde.", price: 65, currency: "TMT", image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400" },
+            { id: "E1", name: "Parfüm Essence", description: "Tebigy düzümler, uzak wagtyňyz galýan. Täze we özüne çekiji ys.", price: 95, currency: "TMT", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" },
+            { id: "E2", name: "Laptop Stendi", description: "Alýumin, ergonomik, sazlanýan. Sagdyn işleýiş pozisiýasy.", price: 55, currency: "TMT", image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400" }
         ];
 
         let cart = [];
@@ -792,9 +790,7 @@
             noResults.style.display = 'none';
             grid.innerHTML = productList.map(product => `
                 <div class="product-card">
-                    <div class="product-image" style="display: flex; align-items: center; justify-content: center; font-size: 80px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        ${product.emoji}
-                    </div>
+                    <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x250?text=${encodeURIComponent(product.name)}'">
                     <div class="product-info">
                         <span class="product-id">ID: ${product.id}</span>
                         <h3 class="product-name">${product.name}</h3>
@@ -884,7 +880,7 @@
             } else {
                 cartItems.innerHTML = cart.map(item => `
                     <div class="cart-item">
-                        <div class="cart-item-img">${item.emoji}</div>
+                        <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=${item.id}'">
                         <div class="cart-item-info">
                             <div class="cart-item-id">ID: ${item.id}</div>
                             <div class="cart-item-name">${item.name}</div>

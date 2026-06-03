@@ -394,13 +394,6 @@
             align-items: center;
             justify-content: center;
             font-size: 28px;
-            overflow: hidden;
-        }
-
-        .cart-item-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .cart-item-info {
@@ -769,34 +762,18 @@
     </footer>
 
     <script>
-        // Base64 kodlu görseller - Türkmenistan'da VPN'siz çalışır!
-        // Tüm görseller kodun içinde, hiçbir dış bağlantı yok
-        
-        const images = {
-            car: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImNhciIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzMzMzMzMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwMDAwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSJ1cmwoI2NhcikiLz48dGV4dCB4PSIyMDAiIHk9IjEyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgwIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+8J+nqzwvdGV4dD48L3N2Zz4=",
-            bag: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJhZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y5YTgyNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Q0YTIwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSJ1cmwoI2JhZykiLz48dGV4dCB4PSIyMDAiIHk9IjEyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgwIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+8J+OmjwvdGV4dD48L3N2Zz4=",
-            watch: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9IndhdGNoIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNDQ0Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMjIyIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9InVybCgjV2F0Y2gpIi8+PHRleHQgeD0iMjAwIiB5PSIxMjUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4MCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPvCfjpc8L3RleHQ+PC9zdmc+",
-            headphone: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImhlYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM2NjciLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMzMzMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgZmlsbD0idXJsIChoZWFkKSIvPjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iODAiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7wn5OKPC90ZXh0Pjwvc3ZnPg==",
-            wallet: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9IndhbCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzhCNDUxMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzVEM0EwMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSJ1cmwoI3dhbCkiLz48dGV4dCB4PSIyMDAiIHk9IjEyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgwIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+8J+OmjwvdGV4dD48L3N2Zz4=",
-            shoe: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InNob2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNlNzQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNjNTIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgZmlsbD0idXJsKCNzaG9lKSIvPjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iODAiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7wn5OqPC90ZXh0Pjwvc3ZnPg==",
-            camera: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImNhbSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzMzMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSJ1cmwoI2NhbSkiLz48dGV4dCB4PSIyMDAiIHk9IjEyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgwIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+8J+OjzwvdGV4dD48L3N2Zz4=",
-            glasses: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdsYXMiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMyMjIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgZmlsbD0idXJsKCNnbGFzKSIvPjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iODAiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7wn5OrPC90ZXh0Pjwvc3ZnPg==",
-            perfume: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InBlcmYiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmOWYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNkN2QiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgZmlsbD0idXJsKCNwZXJmKSIvPjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iODAiIGZpbGw9IiMzMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7wn5OcPC90ZXh0Pjwvc3ZnPg==",
-            laptop: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImxhcCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzY2NyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzMzMyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSJ1cmwoI2xhcCkiLz48dGV4dCB4PSIyMDAiIHk9IjEyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgwIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+8J+TkjwvdGV4dD48L3N2Zz4="
-        };
-
-        // Ürün verileri - Base64 görseller ile
+        // Dış bağlantı YOK - Tüm görseller emoji/gradient ile yerel
         const products = [
-            { id: "A1", name: "Dodge Challenger SRT", description: "Mat gara, aggressiýaýy dizayn, V8 motor. Amerikan kuwwatly awtomobil ikony.", price: 70, currency: "TMT", image: images.car },
-            { id: "A2", name: "Sary Krokodil Desenli Sumka", description: "El ýasalma, premium deri, stil dizayn. Günlük ulanyş üçin ideýal.", price: 90, currency: "TMT", image: images.bag },
-            { id: "B1", name: "Akyllly Sagat Pro", description: "GPS, ýürek urşuny ölçeýji, suw geçirmeýän. Sport we saglyk gözegçiligi üçin.", price: 120, currency: "TMT", image: images.watch },
-            { id: "B2", name: "Simsiz Gulaklyk", description: "Aktiw gurultuly öňüni alýar, 30 sagat batareýa ömrü. Premium ses hili.", price: 85, currency: "TMT", image: images.headphone },
-            { id: "C1", name: "Wintage Deri Gapjyk", description: "El ýasalma, RFID goragly, 12 kartlyk. Wagtyňyz stili.", price: 45, currency: "TMT", image: images.wallet },
-            { id: "C2", name: "Sport Aýakgap", description: "Ýeňil, dem alyjy, ýokary rahatlyk. Ylgamak we günlük ulanyş.", price: 110, currency: "TMT", image: images.shoe },
-            { id: "D1", name: "Surat Makinasy", description: "4K wideo, 24MP, WiFi baglanyşyk. Professional çekimler üçin.", price: 250, currency: "TMT", image: images.camera },
-            { id: "D2", name: "Gün Gözlügi", description: "UV400 gorag, polarizirlenen, titanyum karkas. Stil we gorag bilelikde.", price: 65, currency: "TMT", image: images.glasses },
-            { id: "E1", name: "Parfüm Essence", description: "Tebigy düzümler, uzak wagtyňyz galýan. Täze we özüne çekiji ys.", price: 95, currency: "TMT", image: images.perfume },
-            { id: "E2", name: "Laptop Stendi", description: "Alýumin, ergonomik, sazlanýan. Sagdyn işleýiş pozisiýasy.", price: 55, currency: "TMT", image: images.laptop }
+            { id: "A1", name: "Dodge Challenger SRT", description: "Mat gara, aggressiýaýy dizayn, V8 motor. Amerikan kuwwatly awtomobil ikony.", price: 70, currency: "TMT", emoji: "🚗" },
+            { id: "A2", name: "Sary Krokodil Desenli Sumka", description: "El ýasalma, premium deri, stil dizayn. Günlük ulanyş üçin ideýal.", price: 90, currency: "TMT", emoji: "👜" },
+            { id: "B1", name: "Akyllly Sagat Pro", description: "GPS, ýürek urşuny ölçeýji, suw geçirmeýän. Sport we saglyk gözegçiligi üçin.", price: 120, currency: "TMT", emoji: "⌚" },
+            { id: "B2", name: "Simsiz Gulaklyk", description: "Aktiw gurultuly öňüni alýar, 30 sagat batareýa ömrü. Premium ses hili.", price: 85, currency: "TMT", emoji: "🎧" },
+            { id: "C1", name: "Wintage Deri Gapjyk", description: "El ýasalma, RFID goragly, 12 kartlyk. Wagtyňyz stili.", price: 45, currency: "TMT", emoji: "👛" },
+            { id: "C2", name: "Sport Aýakgap", description: "Ýeňil, dem alyjy, ýokary rahatlyk. Ylgamak we günlük ulanyş.", price: 110, currency: "TMT", emoji: "👟" },
+            { id: "D1", name: "Surat Makinasy", description: "4K wideo, 24MP, WiFi baglanyşyk. Professional çekimler üçin.", price: 250, currency: "TMT", emoji: "📷" },
+            { id: "D2", name: "Gün Gözlügi", description: "UV400 gorag, polarizirlenen, titanyum karkas. Stil we gorag bilelikde.", price: 65, currency: "TMT", emoji: "🕶️" },
+            { id: "E1", name: "Parfüm Essence", description: "Tebigy düzümler, uzak wagtyňyz galýan. Täze we özüne çekiji ys.", price: 95, currency: "TMT", emoji: "🧴" },
+            { id: "E2", name: "Laptop Stendi", description: "Alýumin, ergonomik, sazlanýan. Sagdyn işleýiş pozisiýasy.", price: 55, currency: "TMT", emoji: "💻" }
         ];
 
         let cart = [];
@@ -815,7 +792,9 @@
             noResults.style.display = 'none';
             grid.innerHTML = productList.map(product => `
                 <div class="product-card">
-                    <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+                    <div class="product-image" style="display: flex; align-items: center; justify-content: center; font-size: 80px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        ${product.emoji}
+                    </div>
                     <div class="product-info">
                         <span class="product-id">ID: ${product.id}</span>
                         <h3 class="product-name">${product.name}</h3>
@@ -905,9 +884,7 @@
             } else {
                 cartItems.innerHTML = cart.map(item => `
                     <div class="cart-item">
-                        <div class="cart-item-img">
-                            <img src="${item.image}" alt="${item.name}">
-                        </div>
+                        <div class="cart-item-img">${item.emoji}</div>
                         <div class="cart-item-info">
                             <div class="cart-item-id">ID: ${item.id}</div>
                             <div class="cart-item-name">${item.name}</div>
